@@ -9,15 +9,17 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Binding var place: Place
     var body: some View {
         List{
-            Text("Rock and Roll")
+            Text(place.name)
                 .font(.title)
-                .fontWeight(/*@START_MENU_TOKEN@*/.heavy/*@END_MENU_TOKEN@*/)
-            Image("rockandroll")
+                .fontWeight(.heavy)
+            Image(place.image)
                 .resizable()
                 .scaledToFit()
                 .cornerRadius(16)
+            TextField("Title", text: $place.name)
             
         }
         .listStyle(InsetGroupedListStyle())
@@ -26,9 +28,9 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-        MasterView()
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView()
+//        MasterView()
+//    }
+//}
