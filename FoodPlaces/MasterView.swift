@@ -8,14 +8,17 @@
 import SwiftUI
 
 struct MasterView: View {
+    @Binding var places: [Place]
     var body: some View {
         NavigationView{
             List{
-                NavigationLink(
-                    destination: ContentView(),
-                    label: {
-                        LinkView()
+                ForEach(0..<places.count) { i in
+                    NavigationLink(
+                        destination: ContentView(place: $places[i]),
+                        label: {
+                            LinkView(place: $places[i])
                     })
+                }
             }
             .listStyle(InsetGroupedListStyle())
             .navigationBarTitle("Food Places")
@@ -25,22 +28,23 @@ struct MasterView: View {
     }
 }
 
-struct MasterView_Previews: PreviewProvider {
-    static var previews: some View {
-        MasterView()
-    }
-}
+//struct MasterView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MasterView()
+//    }
+//}
 
 struct LinkView: View {
+    @Binding var place: Place
     var body: some View {
         HStack{
-            Image("rockandroll")
+            Image(place.image)
                 .resizable()
                 .frame(width: 64, height: 64, alignment: .leading)
                 .cornerRadius(8)
                 .padding(.leading, -8)
             VStack(alignment: .leading){
-                Text("Rock and Roll")
+                Text(place.name)
                     .font(.headline)
                 Text("Greenslopes")
                     .font(.subheadline)
