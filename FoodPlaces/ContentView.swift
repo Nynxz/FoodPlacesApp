@@ -11,15 +11,24 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         List{
+            Text("Rock and Roll")
+                .font(.title)
+                .fontWeight(/*@START_MENU_TOKEN@*/.heavy/*@END_MENU_TOKEN@*/)
             Image("rockandroll")
                 .resizable()
                 .scaledToFit()
+                .cornerRadius(16)
+            
         }
+        .listStyle(InsetGroupedListStyle())
+        .navigationBarItems(trailing: EditButton())
+        
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+        MasterView()
     }
 }
