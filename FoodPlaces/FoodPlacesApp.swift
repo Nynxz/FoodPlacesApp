@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct FoodPlacesApp: App {
+    @State var model = [Place(name: "Rock and Roll", image: "rockandroll"), Place(name: "Rock and Roll2.0", image: "rockandroll"), Place(name: "Rock and Roll2.0", image: "rockandroll"), Place(name: "Rock and Roll2.0", image: "rockandroll")]
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MasterView(places: $model)
         }
     }
 }
