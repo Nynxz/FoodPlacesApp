@@ -9,11 +9,15 @@ import SwiftUI
 
 @main
 struct FoodPlacesApp: App {
-    @State var model = [Place(name: "Rock and Roll", image: "rockandroll"), Place(name: "Rock and Roll2.0", image: "rockandroll"), Place(name: "Rock and Roll2.0", image: "rockandroll"), Place(name: "Rock and Roll2.0", image: "rockandroll")]
     
+    //Our App Title
+    @State var appTitle = "Food Places"
+    //Our Main Data
+    @StateObject var placesViewModel = ViewModel()
+
     var body: some Scene {
         WindowGroup {
-            MasterView(places: $model)
+            MasterView(title: $appTitle, placesVM: placesViewModel)
         }
     }
 }
