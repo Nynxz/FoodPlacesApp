@@ -24,6 +24,14 @@ class FoodPlacesTests: XCTestCase {
     func testDefaultViewModel() throws {
         XCTAssertEqual(placesViewModel.model[0], Place(name: "Rock and Roll", image: "rockandroll"))
     }
+    
+    func testViewModelAddElement() throws {
+        let placesViewModelTemp = ViewModel()
+        let currentLength = placesViewModelTemp.model.count
+        placesViewModelTemp.addElement()
+        XCTAssertEqual(placesViewModelTemp.model[currentLength], Place(name: "\(currentLength+1) Place", image: "rockandroll"))
+    }
+    
 
 
 }
