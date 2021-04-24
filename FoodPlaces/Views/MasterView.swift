@@ -11,12 +11,15 @@ struct MasterView: View {
     
     @Binding var title: String
     @ObservedObject var placesVM: ViewModel
-    
-    @Environment(\.editMode) var editMode
 
+    @Environment(\.editMode) var editMode
+    
+    
     var body: some View {
         NavigationView{
-            ListView(placesVM: placesVM, title: $title)
+            ListView(places: placesVM, title: $title)
+                .navigationBarTitle($title.wrappedValue) // THIS LINE CAUSES AN ERROR "[LayoutConstraints] Unable to simultaneously satisfy constraints."
+                                                         //I have no idea why. I thought it was because of the navbar items but removing those doesnt get rid of the error, this is the only thing
                 .navigationBarItems(
                     leading: EditButton(),
                     trailing: Button(
@@ -27,8 +30,6 @@ struct MasterView: View {
                             Image(systemName: "plus.circle.fill").foregroundColor(.blue)
                 }))
                 .listStyle(InsetGroupedListStyle())
-                .navigationBarTitle($title.wrappedValue) // THIS LINE CAUSES AN ERROR "[LayoutConstraints] Unable to simultaneously satisfy constraints."
-                                                         //I have no idea why. I thought it was because of the navbar items but removing those doesnt get rid of the error, this is the only thing
 
         }
     }
@@ -41,20 +42,20 @@ struct MasterView: View {
 //}
 
 struct LinkView: View {
-    
-    var place: Place
-    
+        
     @Environment(\.editMode) var editMode
+    
+    @ObservedObject var placeO: Place
     
     var body: some View {
         HStack{
-            Image(place.image)
+            Image(placeO.image)
                 .resizable()
                 .frame(width: 64, height: 64, alignment: .leading)
                 .cornerRadius(8)
                 .padding(.leading, -8)
             VStack(alignment: .leading){
-                Text(place.name)
+                Text(placeO.name)
                     .font(.headline)
                     .lineLimit(1)
                 Text("Greenslopes")
@@ -66,7 +67,7 @@ struct LinkView: View {
 }
 
 struct ListView: View {
-    @ObservedObject var placesVM: ViewModel
+    @ObservedObject var places: ViewModel
     @Environment(\.editMode) var editMode
     @Binding var title: String
     var body: some View {
@@ -77,17 +78,18 @@ struct ListView: View {
                     .font(.title)
             }
             
-            ForEach(placesVM.model, id: \.id) { place in
+            ForEach(places.model) { place in
                 NavigationLink(
-                    destination: ContentView(place: place),
+                    destination: ContentView(place: place, viewModel: places),
                     label: {
-                        LinkView(place: place)
+                        LinkView(placeO: place)
             })}
             .onDelete(perform: { indexSet in
-                placesVM.remove(at: indexSet)
+                print(places)
+                places.model.remove(atOffsets: indexSet)
             })
             .onMove(perform: { indices, newOffset in
-                placesVM.model.move(fromOffsets: indices, toOffset: newOffset)
+                places.model.move(fromOffsets: indices, toOffset: newOffset)
             })
         }
     }

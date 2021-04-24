@@ -9,12 +9,12 @@
 import SwiftUI
 
 struct ContentView: View {
-    var place: Place
+    @ObservedObject var place: Place
+    @ObservedObject var viewModel: ViewModel
     @Environment(\.editMode) var editMode
     
     var body: some View {
         List{
-            
             if editMode?.wrappedValue.isEditing ?? true {
                 
                 TextField("Title", text: Binding(
@@ -24,7 +24,10 @@ struct ContentView: View {
                     set: {
                         (newValue) in
                         place.name = newValue
-                    }))
+                    }),
+                    onCommit: {
+                        FoodPlacesApp.save(viewModel: viewModel)
+                    })
             }
             else {
                 Text(place.name)
