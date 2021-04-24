@@ -9,20 +9,35 @@
 import SwiftUI
 
 struct ContentView: View {
-    @Binding var place: Place
+    var place: Place
+    @Environment(\.editMode) var editMode
+    
     var body: some View {
         List{
-            Text(place.name)
-                .font(.title)
-                .fontWeight(.heavy)
+            
+            if editMode?.wrappedValue.isEditing ?? true {
+                
+                TextField("Title", text: Binding(
+                    get: {
+                        return place.name
+                    },
+                    set: {
+                        (newValue) in
+                        place.name = newValue
+                    }))
+            }
+            else {
+                Text(place.name)
+                    .font(.title)
+                    .fontWeight(.heavy)
+            }
+
             Image(place.image)
                 .resizable()
                 .scaledToFit()
                 .cornerRadius(16)
-            TextField("Title", text: $place.name)
-            
+
         }
-        .listStyle(InsetGroupedListStyle())
         .navigationBarItems(trailing: EditButton())
         
     }
