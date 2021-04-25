@@ -22,7 +22,7 @@ class FoodPlacesTests: XCTestCase {
     }
     
     func testDefaultViewModel() throws {
-        XCTAssertEqual(placesViewModel.model[0], Place(name: "Rock and Roll", image: "rockandroll"))
+        XCTAssertEqual(placesViewModel.model[0], Place(name: "Rock and Roll 1", image: "rockandroll"))
     }
     
     func testViewModelAddElement() throws {
