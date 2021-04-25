@@ -7,6 +7,7 @@
 // This is the master view - this will contain a navigation view with links to the content
 import SwiftUI
 
+
 struct MasterView: View {
     
     @Binding var title: String
@@ -17,8 +18,8 @@ struct MasterView: View {
     
     var body: some View {
         NavigationView{
-            ListView(places: placesVM, title: $title)
-                .navigationBarTitle($title.wrappedValue) // THIS LINE CAUSES AN ERROR "[LayoutConstraints] Unable to simultaneously satisfy constraints."
+            ListView(places: placesVM, title: $placesVM.title)
+                .navigationBarTitle($placesVM.title.wrappedValue) // THIS LINE CAUSES AN ERROR "[LayoutConstraints] Unable to simultaneously satisfy constraints."
                                                          //I have no idea why. I thought it was because of the navbar items but removing those doesnt get rid of the error, this is the only thing
                 .navigationBarItems(
                     leading: EditButton(),
@@ -35,12 +36,23 @@ struct MasterView: View {
     }
 }
 
-//struct MasterView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MasterView()
-//    }
-//}
+// ---- PREVIEW
+struct MasterView_Previews: PreviewProvider {
+    @State var appTitle = "Food Places"
 
+    static var previews: some View {
+        let placesVM = ViewModel()
+        MasterView(title: Binding(get: {
+            return "Food Places"
+        }, set: { (_) in
+            return
+        }), placesVM: placesVM)
+    }
+}
+
+
+
+// ---- LINK VIEW
 struct LinkView: View {
         
     @Environment(\.editMode) var editMode
@@ -66,6 +78,8 @@ struct LinkView: View {
     }
 }
 
+
+// ---- LIST VIEW
 struct ListView: View {
     @ObservedObject var places: ViewModel
     @Environment(\.editMode) var editMode
@@ -74,7 +88,10 @@ struct ListView: View {
         List {
             
             if editMode?.wrappedValue.isEditing ?? true {
-                TextField("Title", text: $title)
+                TextField("Title", text: $title,
+                          onCommit: {
+                              FoodPlacesApp.save(viewModel: places)
+                          })
                     .font(.title)
             }
             
@@ -87,9 +104,13 @@ struct ListView: View {
             .onDelete(perform: { indexSet in
                 print(places)
                 places.model.remove(atOffsets: indexSet)
+                FoodPlacesApp.save(viewModel: places)
+
             })
             .onMove(perform: { indices, newOffset in
                 places.model.move(fromOffsets: indices, toOffset: newOffset)
+                FoodPlacesApp.save(viewModel: places)
+
             })
         }
     }
