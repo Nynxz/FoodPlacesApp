@@ -10,7 +10,7 @@ import Foundation
 class ViewModel: ObservableObject, Codable {
     
     @Published var model: [Place] = [Place]()
-    
+    @Published var title: String
     init(){
         self.model = [
             Place(name: "Rock and Roll 1", image: "rockandroll"),
@@ -18,6 +18,7 @@ class ViewModel: ObservableObject, Codable {
             Place(name: "Rock and Roll 3", image: "rockandroll"),
             Place(name: "Rock and Roll 4", image: "rockandroll")
         ]
+        self.title = "Food Places"
         
     }
     
@@ -33,19 +34,23 @@ class ViewModel: ObservableObject, Codable {
     
     enum CodingKeys: CodingKey {
         case model
+        case title
     }
     
     //Encoding
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(model, forKey: .model)
+        try container.encode(title, forKey: .title)
+
     }
     
     //Decoding
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         model = try container.decode([Place].self, forKey: .model)
-        print("Model Decoded: \(model)")
+        title = try container.decode(String.self, forKey: .title)
+        print("Model Decoded: \(model) Title: \(title)")
     }
     
 }
