@@ -18,14 +18,13 @@ struct FoodPlacesApp: App {
             return ViewModel()
         }
         print("Loading Saved")
+        //return ViewModel() // FORCE DEFAULT (UNCOMMENT)
         return model
     }()
     
     var body: some Scene {
         WindowGroup {
-            MasterView(
-                title: $appTitle,
-                placesVM: placesViewModel)
+            MasterView(placesVM: placesViewModel)
         }
     }
     

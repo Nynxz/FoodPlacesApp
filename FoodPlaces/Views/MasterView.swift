@@ -10,11 +10,8 @@ import SwiftUI
 
 struct MasterView: View {
     
-    @Binding var title: String
     @ObservedObject var placesVM: ViewModel
-
     @Environment(\.editMode) var editMode
-    
     
     var body: some View {
         NavigationView{
@@ -38,15 +35,11 @@ struct MasterView: View {
 
 // ---- PREVIEW
 struct MasterView_Previews: PreviewProvider {
-    @State var appTitle = "Food Places"
-
+    
     static var previews: some View {
         let placesVM = ViewModel()
-        MasterView(title: Binding(get: {
-            return "Food Places"
-        }, set: { (_) in
-            return
-        }), placesVM: placesVM)
+        MasterView(placesVM: placesVM)
+        .preferredColorScheme(.dark)
     }
 }
 

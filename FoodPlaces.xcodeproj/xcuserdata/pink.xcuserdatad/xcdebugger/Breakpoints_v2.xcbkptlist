@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "FF8270EF-7F3C-4168-8FA5-9E75E631B758"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "02C2C591-B88A-4E36-B0F6-3A2E76154C66"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FoodPlacesTests/FoodPlacesTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "10"
+            endingLineNumber = "10"
+            landmarkName = "unknown"
+            landmarkType = "0">
+            <Locations>
+               <Location
+                  uuid = "02C2C591-B88A-4E36-B0F6-3A2E76154C66 - 93c977e42d16327a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FoodPlacesTests.FoodPlacesTests.__deallocating_deinit"
+                  moduleName = "FoodPlacesTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pink/Documents/OneDrive%20-%20Griffith%20University/3701ICT/FoodPlaces/FoodPlacesTests/FoodPlacesTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  uuid = "02C2C591-B88A-4E36-B0F6-3A2E76154C66 - 2a29cd0ba2418da2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FoodPlacesTests.FoodPlacesTests.__allocating_init(invocation: Swift.Optional&lt;__C.NSInvocation&gt;) -&gt; FoodPlacesTests.FoodPlacesTests"
+                  moduleName = "FoodPlacesTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pink/Documents/OneDrive%20-%20Griffith%20University/3701ICT/FoodPlaces/FoodPlacesTests/FoodPlacesTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  uuid = "02C2C591-B88A-4E36-B0F6-3A2E76154C66 - 24a4aac9f9b900a6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FoodPlacesTests.FoodPlacesTests.init(invocation: Swift.Optional&lt;__C.NSInvocation&gt;) -&gt; FoodPlacesTests.FoodPlacesTests"
+                  moduleName = "FoodPlacesTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pink/Documents/OneDrive%20-%20Griffith%20University/3701ICT/FoodPlaces/FoodPlacesTests/FoodPlacesTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "83">
+               </Location>
+               <Location
+                  uuid = "02C2C591-B88A-4E36-B0F6-3A2E76154C66 - bc2d7bad1afe2863"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FoodPlacesTests.FoodPlacesTests.__allocating_init(selector: ObjectiveC.Selector) -&gt; FoodPlacesTests.FoodPlacesTests"
+                  moduleName = "FoodPlacesTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pink/Documents/OneDrive%20-%20Griffith%20University/3701ICT/FoodPlaces/FoodPlacesTests/FoodPlacesTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  uuid = "02C2C591-B88A-4E36-B0F6-3A2E76154C66 - 8aee9be525df3cc6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FoodPlacesTests.FoodPlacesTests.init(selector: ObjectiveC.Selector) -&gt; FoodPlacesTests.FoodPlacesTests"
+                  moduleName = "FoodPlacesTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pink/Documents/OneDrive%20-%20Griffith%20University/3701ICT/FoodPlaces/FoodPlacesTests/FoodPlacesTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "83">
+               </Location>
+               <Location
+                  uuid = "02C2C591-B88A-4E36-B0F6-3A2E76154C66 - 7428c9fb17c47715"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FoodPlacesTests.FoodPlacesTests.__allocating_init() -&gt; FoodPlacesTests.FoodPlacesTests"
+                  moduleName = "FoodPlacesTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pink/Documents/OneDrive%20-%20Griffith%20University/3701ICT/FoodPlaces/FoodPlacesTests/FoodPlacesTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  uuid = "02C2C591-B88A-4E36-B0F6-3A2E76154C66 - 681f62dcdadfcd60"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FoodPlacesTests.FoodPlacesTests.init() -&gt; FoodPlacesTests.FoodPlacesTests"
+                  moduleName = "FoodPlacesTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pink/Documents/OneDrive%20-%20Griffith%20University/3701ICT/FoodPlaces/FoodPlacesTests/FoodPlacesTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "67">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
