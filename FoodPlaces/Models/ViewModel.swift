@@ -12,19 +12,31 @@ class ViewModel: ObservableObject, Codable {
     @Published var model: [Place] = [Place]()
     @Published var title: String
     init(){
-        self.model = [
-            Place(name: "Rock and Roll 1", image: "rockandroll"),
-            Place(name: "Rock and Roll 2", image: "rockandroll"),
-            Place(name: "Rock and Roll 3", image: "rockandroll"),
-            Place(name: "Rock and Roll 4", image: "rockandroll")
-        ]
         self.title = "Food Places"
+        self.model = []
+        for _ in 0...4{
+            self.model.append(Place(
+                                name: "Rock and Roll 3",
+                                image: "rockandroll",
+                                location: "Brisbane",
+                                imageURL: "https://cdn.usarestaurants.info/assets/uploads/e065b0011f15d5ff4c23aabfcfe8d4b2_-united-states-illinois-dupage-county-milton-township-carol-stream-95558-augustinos-rock-and-roll-deli-and-grillhtm.jpg",
+                                rawImage: returnDataFromURL(url: "https://cdn.usarestaurants.info/assets/uploads/e065b0011f15d5ff4c23aabfcfe8d4b2_-united-states-illinois-dupage-county-milton-township-carol-stream-95558-augustinos-rock-and-roll-deli-and-grillhtm.jpg"),
+                                information: "Default Info",
+                                recommendations: ["Good Place", "Many Food"]))
+        }
         
     }
     
     func addElement() {
         let id = model.count + 1
-        let place = Place(name: "\(id) Place", image: "rockandroll")
+        let place = Place(
+            name: "\(id) Place",
+            image: "rockandroll",
+            location: "Brisbane",
+            imageURL: "https://cdn.usarestaurants.info/assets/uploads/e065b0011f15d5ff4c23aabfcfe8d4b2_-united-states-illinois-dupage-county-milton-township-carol-stream-95558-augustinos-rock-and-roll-deli-and-grillhtm.jpg",
+            rawImage: returnDataFromURL(url: "https://cdn.usarestaurants.info/assets/uploads/e065b0011f15d5ff4c23aabfcfe8d4b2_-united-states-illinois-dupage-county-milton-township-carol-stream-95558-augustinos-rock-and-roll-deli-and-grillhtm.jpg"),
+            information: "New Information",
+            recommendations: ["Good Place", "Many Food"])
         model.append(place)
     }
     
