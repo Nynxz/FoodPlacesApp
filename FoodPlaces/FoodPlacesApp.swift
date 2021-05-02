@@ -37,6 +37,8 @@ struct FoodPlacesApp: App {
         return fileURL
     }
     
+    
+    
     static func save(viewModel: ViewModel) {
         do {
             let data = try JSONEncoder().encode(viewModel)
@@ -49,6 +51,34 @@ struct FoodPlacesApp: App {
             print("Could not write file: \(error)")
         }
     }
-    
-    
+}
+
+func returnDataFromURL(url: String) -> Data {
+    guard let imageURL = URL(string: url) else {
+        fatalError()
+    }
+    guard let imageData = try? Data(contentsOf: imageURL) else {
+        fatalError()
+    }
+    return imageData
+}
+
+func returnImageFromData(data: Data) -> Image {
+    guard let uiImage = UIImage(data: data) else {
+        return Image("missingimage")
+    }
+    return Image(uiImage: uiImage)
+}
+
+func returnImagefromURL(url: String) -> Image{
+    guard let imageURL = URL(string: url) else {
+        return Image("missingimage")
+    }
+    guard let imageData = try? Data(contentsOf: imageURL) else {
+        return Image("missingimage")
+    }
+    guard let uiImage = UIImage(data: imageData) else {
+        return Image("missingimage")
+    }
+    return Image(uiImage: uiImage)
 }
